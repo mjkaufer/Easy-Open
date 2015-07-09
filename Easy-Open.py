@@ -6,7 +6,8 @@ class OpenBrowserCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
 
-        file_vars = sublime.active_window().extract_variables()
+        file_name = self.view.file_name()
+        extension = file_name[file_name.rfind("."):]
         
-        if file_vars["file_extension"] == "html":
-        	webbrowser.open("file:///" + file_vars["file"])
+        if extension == ".html":
+        	webbrowser.open("file:///" + file_name)
