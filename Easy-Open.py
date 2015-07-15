@@ -8,6 +8,6 @@ class OpenBrowserCommand(sublime_plugin.TextCommand):
 
         file_name = self.view.file_name()
         extension = file_name[file_name.rfind("."):]
-        
-        if extension == ".html":
+
+        if extension in (".html", ".htm"):
         	webbrowser.open("file:///" + file_name)
